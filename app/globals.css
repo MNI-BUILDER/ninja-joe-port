@@ -1,0 +1,290 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 255 255;
+    --foreground: 0 0 0;
+    --card: 255 255 255;
+    --card-foreground: 0 0 0;
+    --popover: 255 255 255;
+    --popover-foreground: 0 0 0;
+    --primary: 45 100% 50%;
+    --primary-foreground: 0 0 0;
+    --secondary: 0 0% 90%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 45 100% 60%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 45 100% 50%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 45 100% 50%;
+    --primary-foreground: 0 0% 8%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 45 100% 60%;
+    --accent-foreground: 0 0% 8%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 45 100% 50%;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Comic Sans MS", "Trebuchet MS", cursive, sans-serif;
+    font-weight: bold;
+  }
+}
+
+/* Comic book style backgrounds */
+.comic-dots {
+  background-image: radial-gradient(circle, #ffd700 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.comic-stripes {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 215, 0, 0.1) 10px,
+    rgba(255, 215, 0, 0.1) 20px
+  );
+}
+
+.comic-halftone {
+  background-image: radial-gradient(circle at 25% 25%, #ffd700 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, #ffd700 1px, transparent 1px);
+  background-size: 30px 30px, 20px 20px;
+  background-position: 0 0, 15px 15px;
+  opacity: 0.1;
+}
+
+/* Comic book speech bubble styles */
+.speech-bubble {
+  position: relative;
+  background: #ffd700;
+  border: 3px solid #000;
+  border-radius: 20px;
+  padding: 20px;
+  color: #000;
+  font-weight: bold;
+  box-shadow: 4px 4px 0px #000;
+}
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 30px;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-top-color: #ffd700;
+  border-bottom: 0;
+  margin-left: -15px;
+  margin-bottom: -15px;
+}
+
+.speech-bubble::before {
+  content: "";
+  position: absolute;
+  bottom: -18px;
+  left: 30px;
+  width: 0;
+  height: 0;
+  border: 18px solid transparent;
+  border-top-color: #000;
+  border-bottom: 0;
+  margin-left: -18px;
+  margin-bottom: -18px;
+}
+
+/* Comic book card styles */
+.comic-card {
+  @apply bg-white border-4 border-black rounded-lg p-6 shadow-lg relative overflow-hidden;
+  box-shadow: 8px 8px 0px #000, 12px 12px 0px #ffd700;
+  transition: all 0.3s ease;
+}
+
+.comic-card:hover {
+  transform: translateY(-5px) rotate(1deg);
+  box-shadow: 12px 12px 0px #000, 16px 16px 0px #ffd700;
+}
+
+.dark .comic-card {
+  @apply bg-gray-900 text-white;
+}
+
+/* Comic book button styles */
+.comic-button {
+  @apply bg-comic-yellow text-black font-bold py-3 px-6 border-4 border-black rounded-lg relative overflow-hidden;
+  box-shadow: 4px 4px 0px #000;
+  transition: all 0.2s ease;
+  font-family: "Impact", "Arial Black", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.comic-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0px #000;
+}
+
+.comic-button:active {
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0px #000;
+}
+
+/* Comic book text styles */
+.comic-title {
+  font-family: "Impact", "Arial Black", sans-serif;
+  font-size: 3rem;
+  color: #ffd700;
+  text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000, 1px 1px 0px #000;
+  letter-spacing: 2px;
+  transform: rotate(-2deg);
+  font-weight: 900;
+}
+
+.comic-subtitle {
+  font-family: "Arial Black", "Helvetica", sans-serif;
+  color: #000;
+  text-shadow: 2px 2px 0px #ffd700;
+  font-weight: 900;
+}
+
+/* Comic book effects */
+.comic-pow {
+  position: relative;
+}
+
+.comic-pow::before {
+  content: "POW!";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  background: #ffd700;
+  color: #000;
+  padding: 5px 10px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  font-family: "Impact", sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transform: rotate(15deg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.comic-pow:hover::before {
+  opacity: 1;
+}
+
+/* Ninja-specific comic styles */
+.ninja-comic-card {
+  @apply comic-card;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+  border-image: linear-gradient(45deg, #000, #ffd700, #000) 4;
+}
+
+.dark .ninja-comic-card {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+/* Animation classes */
+.animate-comic-entrance {
+  animation: comic-pop 0.6s ease-out;
+}
+
+.animate-comic-hover {
+  transition: all 0.3s ease;
+}
+
+.animate-comic-hover:hover {
+  animation: comic-bounce 0.6s ease-in-out;
+}
+
+/* Responsive comic styles */
+@media (max-width: 768px) {
+  .comic-title {
+    font-size: 2rem;
+  }
+
+  .comic-card {
+    box-shadow: 4px 4px 0px #000, 6px 6px 0px #ffd700;
+  }
+
+  .comic-card:hover {
+    box-shadow: 6px 6px 0px #000, 8px 8px 0px #ffd700;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border: 2px solid #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffd700;
+  border: 2px solid #000;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b8860b;
+}
+
+/* Comic book font classes */
+.comic-font-title {
+  font-family: "Impact", "Arial Black", sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.comic-font-subtitle {
+  font-family: "Arial Black", "Helvetica", sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.comic-font-body {
+  font-family: "Comic Sans MS", "Trebuchet MS", cursive, sans-serif;
+  font-weight: bold;
+}
