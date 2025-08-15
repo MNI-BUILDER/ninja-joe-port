@@ -64,12 +64,13 @@ html {
   }
 }
 
-/* Comic book style backgrounds */
+/* Dot pattern background - like comic book printing */
 .comic-dots {
   background-image: radial-gradient(circle, #ffd700 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
+/* Diagonal stripe pattern */
 .comic-stripes {
   background-image: repeating-linear-gradient(
     45deg,
@@ -80,6 +81,7 @@ html {
   );
 }
 
+/* Halftone dots pattern - bigger and smaller dots mixed */
 .comic-halftone {
   background-image: radial-gradient(circle at 25% 25%, #ffd700 2px, transparent 2px),
     radial-gradient(circle at 75% 75%, #ffd700 1px, transparent 1px);
@@ -88,7 +90,7 @@ html {
   opacity: 0.1;
 }
 
-/* Comic book speech bubble styles */
+/* Speech bubble like in comics */
 .speech-bubble {
   position: relative;
   background: #ffd700;
@@ -100,6 +102,7 @@ html {
   box-shadow: 4px 4px 0px #000;
 }
 
+/* The little tail on speech bubbles */
 .speech-bubble::after {
   content: "";
   position: absolute;
@@ -114,6 +117,7 @@ html {
   margin-bottom: -15px;
 }
 
+/* Black outline for the speech bubble tail */
 .speech-bubble::before {
   content: "";
   position: absolute;
@@ -128,23 +132,25 @@ html {
   margin-bottom: -18px;
 }
 
-/* Comic book card styles */
+/* Card with comic book style - thick borders and shadows */
 .comic-card {
   @apply bg-white border-4 border-black rounded-lg p-6 shadow-lg relative overflow-hidden;
   box-shadow: 8px 8px 0px #000, 12px 12px 0px #ffd700;
   transition: all 0.3s ease;
 }
 
+/* When you hover over comic cards */
 .comic-card:hover {
   transform: translateY(-5px) rotate(1deg);
   box-shadow: 12px 12px 0px #000, 16px 16px 0px #ffd700;
 }
 
+/* Dark mode version of comic cards */
 .dark .comic-card {
   @apply bg-gray-900 text-white;
 }
 
-/* Comic book button styles */
+/* Comic book style buttons */
 .comic-button {
   @apply bg-comic-yellow text-black font-bold py-3 px-6 border-4 border-black rounded-lg relative overflow-hidden;
   box-shadow: 4px 4px 0px #000;
@@ -155,17 +161,19 @@ html {
   text-transform: uppercase;
 }
 
+/* Button hover effect */
 .comic-button:hover {
   transform: translateY(-2px);
   box-shadow: 6px 6px 0px #000;
 }
 
+/* Button click effect */
 .comic-button:active {
   transform: translateY(2px);
   box-shadow: 2px 2px 0px #000;
 }
 
-/* Comic book text styles */
+/* Big comic book titles */
 .comic-title {
   font-family: "Impact", "Arial Black", sans-serif;
   font-size: 3rem;
@@ -176,6 +184,7 @@ html {
   font-weight: 900;
 }
 
+/* Smaller comic book text */
 .comic-subtitle {
   font-family: "Arial Black", "Helvetica", sans-serif;
   color: #000;
@@ -183,7 +192,7 @@ html {
   font-weight: 900;
 }
 
-/* Comic book effects */
+/* POW effect that appears on hover */
 .comic-pow {
   position: relative;
 }
@@ -210,7 +219,7 @@ html {
   opacity: 1;
 }
 
-/* Ninja-specific comic styles */
+/* Special ninja comic cards */
 .ninja-comic-card {
   @apply comic-card;
   background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
@@ -221,7 +230,7 @@ html {
   background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
 }
 
-/* Animation classes */
+/* Bounce animation */
 .animate-comic-entrance {
   animation: comic-pop 0.6s ease-out;
 }
@@ -234,7 +243,7 @@ html {
   animation: comic-bounce 0.6s ease-in-out;
 }
 
-/* Responsive comic styles */
+/* Mobile phone styles */
 @media (max-width: 768px) {
   .comic-title {
     font-size: 2rem;
@@ -269,7 +278,7 @@ html {
   background: #b8860b;
 }
 
-/* Comic book font classes */
+/* Font styles */
 .comic-font-title {
   font-family: "Impact", "Arial Black", sans-serif;
   font-weight: 900;
