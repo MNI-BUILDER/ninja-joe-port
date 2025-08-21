@@ -1,77 +1,75 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@tailwind base; /* bring in Tailwind's base styles */
+@tailwind components; /* bring in Tailwind's component classes */
+@tailwind utilities; /* bring in Tailwind's utility classes */
 
 @layer base {
   :root {
-    --background: 255 255 255;
-    --foreground: 0 0 0;
-    --card: 255 255 255;
-    --card-foreground: 0 0 0;
-    --popover: 255 255 255;
-    --popover-foreground: 0 0 0;
-    --primary: 45 100% 50%;
-    --primary-foreground: 0 0 0;
-    --secondary: 0 0% 90%;
-    --secondary-foreground: 0 0% 10%;
-    --muted: 0 0% 95%;
-    --muted-foreground: 0 0% 40%;
-    --accent: 45 100% 60%;
-    --accent-foreground: 0 0% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 85%;
-    --input: 0 0% 85%;
-    --ring: 45 100% 50%;
-    --radius: 0.5rem;
+    --background: 255 255 255; /* light background */
+    --foreground: 0 0 0; /* dark text */
+    --card: 255 255 255; /* white card background */
+    --card-foreground: 0 0 0; /* black card text */
+    --popover: 255 255 255; /* white popover */
+    --popover-foreground: 0 0 0; /* black text in popover */
+    --primary: 45 100% 50%; /* yellow main color */
+    --primary-foreground: 0 0 0; /* black text on yellow */
+    --secondary: 0 0% 90%; /* light gray secondary */
+    --secondary-foreground: 0 0% 10%; /* dark text for secondary */
+    --muted: 0 0% 95%; /* very light muted background */
+    --muted-foreground: 0 0% 40%; /* medium gray muted text */
+    --accent: 45 100% 60%; /* brighter yellow accent */
+    --accent-foreground: 0 0% 10%; /* dark text on accent */
+    --destructive: 0 84.2% 60.2%; /* strong red destructive color */
+    --destructive-foreground: 0 0% 98%; /* white text on red */
+    --border: 0 0% 85%; /* light gray borders */
+    --input: 0 0% 85%; /* light input backgrounds */
+    --ring: 45 100% 50%; /* yellow focus ring */
+    --radius: 0.5rem; /* rounded corners */
   }
 
-  .dark {
-    --background: 0 0% 8%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 45 100% 50%;
-    --primary-foreground: 0 0% 8%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 45 100% 60%;
-    --accent-foreground: 0 0% 8%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 85.7% 97.3%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 45 100% 50%;
+  .dark { /* dark mode overrides */
+    --background: 0 0% 8%; /* almost black background */
+    --foreground: 0 0% 98%; /* almost white text */
+    --card: 0 0% 12%; /* dark gray card */
+    --card-foreground: 0 0% 98%; /* light text */
+    --popover: 0 0% 8%; /* dark popover */
+    --popover-foreground: 0 0% 98%; /* white text in popover */
+    --primary: 45 100% 50%; /* keep yellow primary */
+    --primary-foreground: 0 0% 8%; /* dark text on yellow */
+    --secondary: 0 0% 15%; /* darker gray */
+    --secondary-foreground: 0 0% 98%; /* white text */
+    --muted: 0 0% 15%; /* muted dark gray */
+    --muted-foreground: 0 0% 65%; /* medium gray text */
+    --accent: 45 100% 60%; /* accent yellow */
+    --accent-foreground: 0 0% 8%; /* dark text on accent */
+    --destructive: 0 62.8% 30.6%; /* dark red */
+    --destructive-foreground: 0 85.7% 97.3%; /* light text */
+    --border: 0 0% 20%; /* darker border */
+    --input: 0 0% 20%; /* dark input */
+    --ring: 45 100% 50%; /* yellow focus ring */
   }
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* smooth scroll effect */
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border; /* use border color everywhere */
   }
   body {
-    @apply bg-background text-foreground;
-    font-family: "Comic Sans MS", "Trebuchet MS", cursive, sans-serif;
-    font-weight: bold;
+    @apply bg-background text-foreground; /* background and text from variables */
+    font-family: "Comic Sans MS", "Trebuchet MS", cursive, sans-serif; /* comic fonts */
+    font-weight: bold; /* bold text */
   }
 }
 
-/* Dot pattern background - like comic book printing */
-.comic-dots {
-  background-image: radial-gradient(circle, #ffd700 1px, transparent 1px);
+.comic-dots { /* dotted comic book background */
+  background-image: radial-gradient(circle, #ffd700 1px, transparent 1px); 
   background-size: 20px 20px;
 }
 
-/* Diagonal stripe pattern */
-.comic-stripes {
+.comic-stripes { /* diagonal comic stripes */
   background-image: repeating-linear-gradient(
     45deg,
     transparent,
@@ -81,35 +79,30 @@ html {
   );
 }
 
-/* Halftone dots pattern - bigger and smaller dots mixed */
-.comic-halftone {
+.comic-halftone { /* halftone dot background */
   background-image: radial-gradient(circle at 25% 25%, #ffd700 2px, transparent 2px),
     radial-gradient(circle at 75% 75%, #ffd700 1px, transparent 1px);
   background-size: 30px 30px, 20px 20px;
   background-position: 0 0, 15px 15px;
-  opacity: 0.1;
+  opacity: 0.1; /* subtle effect */
 }
 
-/* Speech bubble like in comics */
-.speech-bubble {
+.speech-bubble { /* yellow speech bubble */
   position: relative;
   background: #ffd700;
   border: 3px solid #000;
-  border-radius: 20px;
+  border-radius: 20px; /* rounded edges */
   padding: 20px;
   color: #000;
   font-weight: bold;
-  box-shadow: 4px 4px 0px #000;
+  box-shadow: 4px 4px 0px #000; /* comic-like shadow */
 }
 
-/* The little tail on speech bubbles */
-.speech-bubble::after {
+.speech-bubble::after { /* speech bubble tail */
   content: "";
   position: absolute;
   bottom: -15px;
   left: 30px;
-  width: 0;
-  height: 0;
   border: 15px solid transparent;
   border-top-color: #ffd700;
   border-bottom: 0;
@@ -117,14 +110,11 @@ html {
   margin-bottom: -15px;
 }
 
-/* Black outline for the speech bubble tail */
-.speech-bubble::before {
+.speech-bubble::before { /* black outline for tail */
   content: "";
   position: absolute;
   bottom: -18px;
   left: 30px;
-  width: 0;
-  height: 0;
   border: 18px solid transparent;
   border-top-color: #000;
   border-bottom: 0;
@@ -132,26 +122,22 @@ html {
   margin-bottom: -18px;
 }
 
-/* Card with comic book style - thick borders and shadows */
-.comic-card {
+.comic-card { /* comic-style card with thick borders */
   @apply bg-white border-4 border-black rounded-lg p-6 shadow-lg relative overflow-hidden;
   box-shadow: 8px 8px 0px #000, 12px 12px 0px #ffd700;
   transition: all 0.3s ease;
 }
 
-/* When you hover over comic cards */
-.comic-card:hover {
+.comic-card:hover { /* hover lifts card */
   transform: translateY(-5px) rotate(1deg);
   box-shadow: 12px 12px 0px #000, 16px 16px 0px #ffd700;
 }
 
-/* Dark mode version of comic cards */
-.dark .comic-card {
+.dark .comic-card { /* dark mode comic card */
   @apply bg-gray-900 text-white;
 }
 
-/* Comic book style buttons */
-.comic-button {
+.comic-button { /* comic style button */
   @apply bg-comic-yellow text-black font-bold py-3 px-6 border-4 border-black rounded-lg relative overflow-hidden;
   box-shadow: 4px 4px 0px #000;
   transition: all 0.2s ease;
@@ -161,43 +147,38 @@ html {
   text-transform: uppercase;
 }
 
-/* Button hover effect */
-.comic-button:hover {
+.comic-button:hover { /* hover lifts button */
   transform: translateY(-2px);
   box-shadow: 6px 6px 0px #000;
 }
 
-/* Button click effect */
-.comic-button:active {
+.comic-button:active { /* click presses button */
   transform: translateY(2px);
   box-shadow: 2px 2px 0px #000;
 }
 
-/* Big comic book titles */
-.comic-title {
+.comic-title { /* big yellow comic title */
   font-family: "Impact", "Arial Black", sans-serif;
   font-size: 3rem;
   color: #ffd700;
   text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000, 1px 1px 0px #000;
   letter-spacing: 2px;
-  transform: rotate(-2deg);
+  transform: rotate(-2deg); /* tilted */
   font-weight: 900;
 }
 
-/* Smaller comic book text */
-.comic-subtitle {
+.comic-subtitle { /* smaller comic subtitle */
   font-family: "Arial Black", "Helvetica", sans-serif;
   color: #000;
   text-shadow: 2px 2px 0px #ffd700;
   font-weight: 900;
 }
 
-/* POW effect that appears on hover */
-.comic-pow {
+.comic-pow { /* "POW!" effect */
   position: relative;
 }
 
-.comic-pow::before {
+.comic-pow::before { /* hidden POW text */
   content: "POW!";
   position: absolute;
   top: -20px;
@@ -211,31 +192,29 @@ html {
   font-size: 0.8rem;
   font-weight: bold;
   transform: rotate(15deg);
-  opacity: 0;
+  opacity: 0; /* hidden by default */
   transition: opacity 0.3s ease;
 }
 
-.comic-pow:hover::before {
+.comic-pow:hover::before { /* show POW on hover */
   opacity: 1;
 }
 
-/* Special ninja comic cards */
-.ninja-comic-card {
+.ninja-comic-card { /* special gradient comic card */
   @apply comic-card;
   background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
   border-image: linear-gradient(45deg, #000, #ffd700, #000) 4;
 }
 
-.dark .ninja-comic-card {
+.dark .ninja-comic-card { /* dark gradient version */
   background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
 }
 
-/* Bounce animation */
-.animate-comic-entrance {
+.animate-comic-entrance { /* entrance animation */
   animation: comic-pop 0.6s ease-out;
 }
 
-.animate-comic-hover {
+.animate-comic-hover { /* hover animation */
   transition: all 0.3s ease;
 }
 
@@ -243,10 +222,9 @@ html {
   animation: comic-bounce 0.6s ease-in-out;
 }
 
-/* Mobile phone styles */
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* responsive tweaks */
   .comic-title {
-    font-size: 2rem;
+    font-size: 2rem; /* smaller title */
   }
 
   .comic-card {
@@ -258,8 +236,7 @@ html {
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
+::-webkit-scrollbar { /* custom scrollbar */
   width: 12px;
 }
 
@@ -275,25 +252,24 @@ html {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b8860b;
+  background: #b8860b; /* darker gold */
 }
 
-/* Font styles */
-.comic-font-title {
+.comic-font-title { /* comic font for titles */
   font-family: "Impact", "Arial Black", sans-serif;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
-.comic-font-subtitle {
+.comic-font-subtitle { /* font for subtitles */
   font-family: "Arial Black", "Helvetica", sans-serif;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.comic-font-body {
+.comic-font-body { /* body font */
   font-family: "Comic Sans MS", "Trebuchet MS", cursive, sans-serif;
   font-weight: bold;
 }
